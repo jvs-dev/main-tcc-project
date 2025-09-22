@@ -1,7 +1,10 @@
 <main>
   <p>Hello World</p>
-  <p>{{apiResponse}}</p>
+  <p [innerHTML]="apiResponse"></p>
 </main>
 
+@if (showDashboard == true) {
+<app-dashboard [data]="apiJsonResponse" />
+}
 
 <router-outlet />
