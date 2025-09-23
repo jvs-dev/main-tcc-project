@@ -3,12 +3,12 @@
   <pre>{{ data() | json }}</pre>
   <div class="dashboard-container" *ngIf="data()">
     <h2 class="dashboard-title">Dashboard de Diagnóstico</h2>
-    @for (el of data().result; track $index) {
+    @for (el of dataKeys; track $index) {
     <ul>
       <li>
-        {{ el[0] }}
+        {{ el }}
         <br />
-        {{ el[1] }}
+        {{ data().result[$index][el] ? data().result[$index][el] : 'Erro' }}
       </li>
     </ul>
     }

@@ -9,11 +9,15 @@ import { Component, input } from '@angular/core';
   styleUrl: './dashboard.css'
 })
 export class Dashboard {
-  data = input<any>(); 
+  data = input<any>();
+  dataKeys: string[] = []
 
   ngOnInit() {
-    this.data().result.forEach((element: any, index: number) => {      
-      console.log(Object.keys(this.data().result[index]));      
-    });    
+    this.data().result.forEach((element: any, index: number) => (      
+      this.dataKeys.push(Object.keys(this.data().result[index])[0])
+      
+    ));
+    console.log(this.dataKeys);
+
   }
 }
